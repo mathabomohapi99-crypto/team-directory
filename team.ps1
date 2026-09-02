@@ -26,3 +26,9 @@ if ($searchName) {
     Write-Host "--- Search results ---"
     Search-TeamMembers -name $searchName
 }
+
+$searchRole = Read-Host "Enter a role to search (or press Enter to skip)"
+if ($searchRole) {
+    Write-Host "--- Role search results ---"
+    Search-TeamMembersByRole -role $searchRole
+}
