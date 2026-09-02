@@ -65,3 +65,31 @@ I'd choose a **merge** when I want the true history preserved — e.g. on a shar
 ## Part 4 — Rejected push recovery
 
 When I tried to push after editing README.md directly on GitHub's website, my push was rejected with: `! [rejected] main -> main (fetch first)`, because the remote had a commit I didn't have locally yet. I recovered using `git pull --rebase origin main` instead of a plain `git pull` or a force-push. A plain `pull` would have created an unnecessary merge commit for two unrelated, non-conflicting changes, and force-pushing would have overwritten the teammate's (in this case, my own web-edit) commit on GitHub entirely, destroying their work. `pull --rebase` replayed my local commit cleanly on top of the remote's commit, preserving both changes with a clean, linear history — the correct recovery, not just the safest-sounding one.
+
+## Assignment 1.2
+
+### Question 1 — Why fork, not branch, this time?
+
+In 1.1 I had write access to my own repo, so branching directly made sense. This time I don't have write access to my partner's repo, so I can't push a branch there directly — GitHub would just reject it. Forking gives me my own copy of their repo where I do have write access, and lets me open a Pull Request from my copy back into theirs. If I tried to clone their repo and push a branch straight to it, the push would fail with a permissions error, since I'm not a collaborator on it.
+
+## Question 2 — PR description: bad vs. good
+
+Bad version:
+
+"added search"
+
+Good version:
+
+What: Added a Search-TeamMembersByRole function to team.ps1 that lets a user search team members by role.
+Why: The directory only supported searching by name. Teams often need to find everyone in a given role (e.g. all Backend Developers), so this fills a real gap.
+How to verify: Run .\team.ps1, enter a role like "Developer" when prompted, and confirm it prints only matching entries.
+
+## Question 3 — Triaging review comments
+
+A blocking comment is something that must be fixed before merge — a bug, a missing case, or something that would break for other users. A nit/suggestion is a preference that doesn't affect correctness, like naming or formatting — nice to have, not required. A question is the reviewer asking for clarification, not necessarily asking for a change.
+
+My rule: if the comment points out something that would cause incorrect behavior or a real gap, I treat it as blocking. If it's about style, naming, or "could also do it this way," I treat it as a nit. If it's phrased as "why did you..." or "what happens if...", I treat it as a question until it's clear whether they expect a change.
+
+## Question 4 — When fetch beats pull
+
+After my partner's PR is merged into my repo, before pulling I'd run git fetch and check origin/main first, rather than pulling straight away. This lets me see exactly what changed and confirm the merge commit is there with my partner's name as the author, before it touches my local main. If I just ran pull blindly, I'd merge it in immediately without ever having looked at what I was about to bring in — fine most of the time, but risky if there's ever a conflict or something unexpected upstream.
