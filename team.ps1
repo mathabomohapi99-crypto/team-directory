@@ -12,3 +12,9 @@ function Search-TeamMembers {
 foreach ($member in $members) {
     Write-Host $member
 }
+
+$searchName = Read-Host "Enter a name to search (or press Enter to skip)"
+if ($searchName) {
+    Write-Host "--- Search results ---"
+    Search-TeamMembers -name $searchName
+}
