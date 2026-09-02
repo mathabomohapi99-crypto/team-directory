@@ -1,0 +1,1 @@
+Write-Host "=== Team Directory ==="
