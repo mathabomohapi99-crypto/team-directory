@@ -93,3 +93,36 @@ My rule: if the comment points out something that would cause incorrect behavior
 ## Question 4 — When fetch beats pull
 
 After my partner's PR is merged into my repo, before pulling I'd run git fetch and check origin/main first, rather than pulling straight away. This lets me see exactly what changed and confirm the merge commit is there with my partner's name as the author, before it touches my local main. If I just ran pull blindly, I'd merge it in immediately without ever having looked at what I was about to bring in — fine most of the time, but risky if there's ever a conflict or something unexpected upstream.
+## Assignemnt 1.2
+
+### Question 1 — Why fork, not branch, this time?
+
+Forking is necessary because I don't have write access to my partner's repository. In 1.1, I owned the repo, so I could create and push branches directly to it. In 1.2, I'm contributing to someone else's repo — GitHub doesn't allow arbitrary users to push branches directly to a repository they don't own, since that would let anyone write to anyone else's project. Forking creates my own copy of their repo, under my account, where I do have write access, so I can branch and push there, then open a Pull Request asking them to pull my changes into their original.
+
+If I tried to clone their repo and push a branch directly to it, the push would be rejected with a permission error — my account simply isn't authorized to write to their repository.
+
+### Question 2 — PR description: bad vs. good
+
+**Bad version:**
+"Added search. Works now."
+
+**Good version (what / why / how-to-verify):**
+"**What:** Adds a `Search-TeamMembersByRole` function that filters team members by their role field.
+**Why:** Currently there's no way to find team members by role — you have to scan the whole list manually. This makes the tool actually useful for a bigger team.
+**How to verify:** Run `.\team.ps1`, choose the role search option, type 'Developer', and confirm only members with that role print."
+
+The second version is easier to review because it tells the reviewer *what* changed without them having to read the whole diff to guess, *why* it matters so they can judge if it's actually worth merging, and exactly *how to check it works themselves* rather than trusting the description blindly.
+
+### Question 3 — Triaging review comments
+
+A **blocking comment** points to something that must be fixed before merge — a real bug, a missing edge case, or something that would break for another user. A **nit/suggestion** is a style or preference opinion that doesn't affect correctness — the code works fine either way, it's just "I'd have done this differently." A **question** is genuinely asking for clarification, not necessarily requesting any change at all.
+
+My rule for triaging an unlabeled comment: I ask myself "if I ignore this completely, does the code still work correctly for every user?" If no — it's blocking. If yes, but the comment is phrased as an opinion or alternative approach — it's a nit. If the comment is phrased as "why did you..." or "what happens if..." without suggesting a specific change — it's a question, and I answer it before deciding if it needs a fix at all.
+
+### Question 4 — When fetch beats pull
+
+A realistic moment: right before merging my partner's PR into my own repo, or right before continuing work in my original 1.1 folder after my partner's contribution has been merged elsewhere. Instead of running `git pull` immediately (which fetches and merges/rebases in one step), I'd run `git fetch` first, then inspect `origin/main` with `git log origin/main` or `git log --oneline main origin/main`. I'd be checking what commits actually landed on the remote — whose name is on them, whether it's what I expect, and whether there's anything unexpected — before blindly merging that into my own working branch.
+
+
+
+
