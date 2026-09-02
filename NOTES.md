@@ -54,3 +54,6 @@ Running `git diff team.ps1` showed a blank line added after the first line, plus
 ## Part 3 — Task 4 (merge type)
 
 Merging `feature/add-search` into `main` produced a **fast-forward**, not a three-way merge. I knew this because the terminal output literally said "Fast-forward" instead of opening a merge commit message editor. This happened because `main` hadn't received any new commits since I branched off it — so git could just move the `main` pointer straight up to my branch's latest commit, with no divergence to reconcile.
+## Part 3 — Task 7 (conflict explanation)
+
+The conflict happened because I edited the same line of README.md on two different branches — once on `edit-readme`, and once directly on `main` — with different text each time. Git couldn't automatically decide which version was correct since both were valid edits to the exact same line, so it stopped and asked me to choose. I resolved it by combining both intentions into one final line, `# Team Directory CLI Tool (by Mathabo)`, rather than picking one side and discarding the other's idea entirely.
