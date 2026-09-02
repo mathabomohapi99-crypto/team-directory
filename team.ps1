@@ -20,3 +20,8 @@ if ($searchName) {
     Write-Host "--- Search results ---"
     Search-TeamMembers -name $searchName
 }
+
+function Search-TeamMembersByRole {
+    param($role)
+    Get-TeamMembers | Where-Object { $_ -like "*Role:*$role*" }
+}
