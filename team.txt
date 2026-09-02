@@ -9,3 +9,6 @@ Role: Frontend Developer
 
 Name: Agens Mokoena
 Role: Designer
+
+Name: Nteboheleng Gladys
+Role: QA Tester
