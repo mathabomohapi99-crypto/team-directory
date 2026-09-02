@@ -5,6 +5,8 @@ function Get-TeamMembers {
 }
 
 $members = Get-TeamMembers
+$count = (Get-TeamMembers).Count
+Write-Host "Total members: $count"
 function Search-TeamMembers {
     param($name)
     Get-TeamMembers | Where-Object { $_ -like "*$name*" }
