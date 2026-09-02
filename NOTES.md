@@ -57,3 +57,8 @@ Merging `feature/add-search` into `main` produced a **fast-forward**, not a thre
 ## Part 3 — Task 7 (conflict explanation)
 
 The conflict happened because I edited the same line of README.md on two different branches — once on `edit-readme`, and once directly on `main` — with different text each time. Git couldn't automatically decide which version was correct since both were valid edits to the exact same line, so it stopped and asked me to choose. I resolved it by combining both intentions into one final line, `# Team Directory CLI Tool (by Mathabo)`, rather than picking one side and discarding the other's idea entirely.
+## Part 3 — Task 9 (merge vs rebase graph comparison)
+
+Looking at `git log --oneline --all --graph`, Task 4's merge (the search feature) shows the same straight shape as a fast-forward, but Task 6/7's conflict merge clearly shows a diamond — two lines diverging from a common commit and rejoining at a merge commit with two parents. Task 9's rebase, by contrast, shows no diamond at all — the branch's commit sits as a single straight line directly on top of main's latest commit, because rebase rewrote it to look like it happened after main's other commits, rather than alongside them.
+
+I'd choose a **merge** when I want the true history preserved — e.g. on a shared team branch, where rewriting commits others have already pulled would break their local copies. I'd choose **rebase** for my own local feature branch before it's shared with anyone, to keep the final history clean and easy to read.
