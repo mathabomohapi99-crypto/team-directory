@@ -1,1 +1,1 @@
-# Team Directory
+# Team Directory CLI Tool
