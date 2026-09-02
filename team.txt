@@ -1,4 +1,11 @@
-Quinton Fykels, Backend Developer
-Motlatsi Mohapi, Frontend Developer
-Nteboheleng Gladys, QA Tester
-Agens Mokoena, Designer
+Name: Andiswa Mbonambi
+Role: Software Developer Trainee
+
+Name: Quinton Fykels
+Role: Backend Developer
+
+Name: Motlatsi Mohapi
+Role: Frontend Developer
+
+Name: Agens Mokoena
+Role: Designer
