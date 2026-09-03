@@ -93,3 +93,29 @@ My rule: if the comment points out something that would cause incorrect behavior
 ## Question 4 — When fetch beats pull
 
 After my partner's PR is merged into my repo, before pulling I'd run git fetch and check origin/main first, rather than pulling straight away. This lets me see exactly what changed and confirm the merge commit is there with my partner's name as the author, before it touches my local main. If I just ran pull blindly, I'd merge it in immediately without ever having looked at what I was about to bring in — fine most of the time, but risky if there's ever a conflict or something unexpected upstream.
+
+## Reflections
+
+### 1. What I contributed, and why
+
+I added a `Search-TeamMembersByRole` function to my partner's `team.ps1`, allowing users to search for team members by their role instead of only by name. I considered this a useful contribution because the existing tool could search by name, but there was no way to quickly find everyone in a particular role, such as Backend Developers. This makes the directory more useful as the team grows.
+
+### 2. A comment I received that changed my code
+
+My partner left a blocking comment on my Pull Request pointing out that I had a duplicate and incomplete `## Assignment 1.2` section in my `NOTES.md`. This happened after changes from `main` were brought into my branch and caused duplicate content. I fixed the issue by removing the duplicate section and keeping the complete version of my Assignment 1.2 answers. I made the correction in a follow-up commit rather than amending or force-pushing the original commit.
+
+### 3. A comment I gave that I stand by
+
+On my partner's Pull Request, I left a blocking comment about the `get_entries()` function. I pointed out that the function could fail with an unhandled exception if `team.txt` was missing or could not be read, and suggested handling the error with a clear message instead. I stand by this comment because it was a genuine reliability issue that could affect the user of the program, rather than just being a personal preference about style or formatting.
+
+### 4. Fetch vs. pull, in practice
+
+In my original 1.1 repository, I ran `git fetch` before pulling and saw that `origin/main` was ahead of my local `main`. I then used `git log --oneline main origin/main` to inspect the incoming history before changing my local branch. After confirming the merged changes from my partner were present, I ran `git pull`, which fast-forwarded my local `main`. This showed me the practical value of using `fetch` first: I could inspect what had changed on the remote before bringing those changes into my local branch.
+
+### 5. What I learned from the workflow
+
+The biggest thing I learned from Assignment 1.2 was how a fork-based workflow allows people to contribute to a repository even when they do not have direct write access. I also learned that Pull Requests are not only for submitting code, but are an important part of reviewing, discussing, and improving changes before they are merged.
+
+I also learned the importance of responding to review feedback with follow-up commits instead of changing the original commit history. The process of reviewing my partner's Pull Request also showed me the difference between a blocking issue, a suggestion, and a question.
+
+One process mistake I made was merging my partner's Pull Request before completing my review. I corrected this by reviewing the merged Pull Request afterward and documenting what happened. In future, I will make sure to complete the review and submit my review decision before merging a Pull Request.
