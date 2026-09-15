@@ -14,6 +14,8 @@ function Search-TeamMembers {
 
 function Search-TeamMembersByRole {
     param($role)
+    # Assumes team.txt lines follow "Name: X" / "Role: Y" format —
+    # if that format changes, this silently returns no matches with no error
     Get-TeamMembers | Where-Object { $_ -like "*Role:*$role*" }
 }
 
