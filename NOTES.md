@@ -119,3 +119,8 @@ The biggest thing I learned from Assignment 1.2 was how a fork-based workflow al
 I also learned the importance of responding to review feedback with follow-up commits instead of changing the original commit history. The process of reviewing my partner's Pull Request also showed me the difference between a blocking issue, a suggestion, and a question.
 
 One process mistake I made was merging my partner's Pull Request before completing my review. I corrected this by reviewing the merged Pull Request afterward and documenting what happened. In future, I will make sure to complete the review and submit my review decision before merging a Pull Request.
+
+## Assignment 3.2
+
+### Task 6 note
+team.ps1 had zero existing comments, so there was no comment that restated code to remove/rewrite. Instead, I added one genuine "why" comment on the role search function explaining the format assumption in team.txt, since that was the clearest undocumented logic gap identified in Question 2. 
