@@ -123,4 +123,19 @@ One process mistake I made was merging my partner's Pull Request before completi
 ## Assignment 3.2
 
 ### Task 6 note
-team.ps1 had zero existing comments, so there was no comment that restated code to remove/rewrite. Instead, I added one genuine "why" comment on the role search function explaining the format assumption in team.txt, since that was the clearest undocumented logic gap identified in Question 2. 
+team.ps1 had zero existing comments, so there was no comment that restated code to remove/rewrite. Instead, I added one genuine "why" comment on the role search function explaining the format assumption in team.txt, since that was the clearest undocumented logic gap identified in Question 2.
+
+### Part 4 — Reflection
+
+**What the sample exercise revealed:** Documenting the throwaway signup function first made me slow down and think about *why* before writing the real README and ADR — instead of just describing what the code does, I focused on the reasoning behind each decision.
+
+**The comment you were wrong about:** There wasn't an existing bad comment to remove in team.ps1, since the file had zero comments — so instead of correcting an assumption, I discovered the codebase needed comments added, not fixed.
+
+**The line between decision and detail:** After writing a real ADR, I'd now document fewer decisions than I originally thought in Question 3 — not every choice needs a full ADR, only ones where a reasonable alternative existed and the reasoning isn't obvious from the code itself.
+
+
+### Links
+
+- README: https://github.com/mathabomohapi99-crypto/team-directory/blob/main/README.md
+- ADR: https://github.com/mathabomohapi99-crypto/team-directory/blob/main/docs/decisions/0001-store-team-data-as-plain-text.md
+- Function doc: https://github.com/mathabomohapi99-crypto/team-directory/blob/main/docs/decisions/function-docs.md
